@@ -26,38 +26,34 @@ After a brief discussion taking into account various pros and cons of these mode
 
 **Performance on YOLOv3 on BCCD:**
 
-Link to the colab notebook :
-
-[https://colab.research.google.com/drive/1EqLPF5SJxiI4iPMojeycB8l\_BCo9Zdpb?usp=sharing](https://colab.research.google.com/drive/1EqLPF5SJxiI4iPMojeycB8l_BCo9Zdpb?usp=sharing)
-
 Link to the dataset,trained weights,model :
 
 [https://drive.google.com/drive/folders/1zxXjTPeQWa1ijOdbhyXZZTgXot0jNqtc?usp=sharing](https://drive.google.com/drive/folders/1zxXjTPeQWa1ijOdbhyXZZTgXot0jNqtc?usp=sharing)
 
 Pre Processing and training details:
 
-1. Converted XML to .txt and recalculated the coordinates specific to YOLO architecture
-2. Calculated custom anchor boxes specific to BCCD using k- means for better and faster training
-3. Inference was done with 832 x 832 resolution as author prescribes it for getting better result
-4. Momentum = 0.9 was used with learning rate of 0.001 with decay of 0.0005
-5. Input Dimensions = 640 x 480 x 3 in batches of 64 per batch with 16 per subdivision.
-6. Total Anchors = 9 , 3 per grid cell (3 x 3)
+ 1. Converted XML to .txt and recalculated the coordinates specific to YOLO architecture
+ 2. Calculated custom anchor boxes specific to BCCD using k- means for better and faster training
+ 3. Inference was done with 832 x 832 resolution as author prescribes it for getting better result
+ 4. Momentum = 0.9 was used with learning rate of 0.001 with decay of 0.0005
+ 5. Input Dimensions = 640 x 480 x 3 in batches of 64 per batch with 16 per subdivision.
+ 6. Total Anchors = 9 , 3 per grid cell (3 x 3)
  Recalculated anchor dimensions prior to training = 39, 38, 101, 70, 77,105, 94, 91, 114, 96, 102,109, 123,117, 172,148, 221,204
-7. Other configurations details can be found in yolo-obj.cfg file in the darknet folder in the shared drive link
+ 7. Other configurations details can be found in yolo-obj.cfg file in the darknet folder in the shared drive link
 
 With the above mentioned details the model was put to training on Google Colaboratory with GPU (Tesla K80) for a total of 6000 steps which took about 7 hrs.
 
 Intermediate and final weights were saved to check the model performance.
 
-![](RackMultipart20201009-4-3p9z4f_html_165bb0e3a11f3f25.jpg) ![](RackMultipart20201009-4-3p9z4f_html_732394c4a900d32.jpg)
-
-After 1000 Steps After 2000 steps
+![](https://user-images.githubusercontent.com/47039231/95626862-be5ced80-0a98-11eb-969f-2c8861bac6c2.png) 
 
 A random test image was taken which the model had not seen before and each weights performance was noted. The model quickly learns to classify the components although it sometimes duplicates the counting but it gets better with steps as evident in the model predictions.
 
-![](RackMultipart20201009-4-3p9z4f_html_39f44cdea0c4ee2.jpg) ![](RackMultipart20201009-4-3p9z4f_html_59e513a1eba25b25.jpg). After 3000 Steps After 4000 steps ![](RackMultipart20201009-4-3p9z4f_html_3ed78af3bced865d.jpg) ![](RackMultipart20201009-4-3p9z4f_html_4be4efb7638e6653.jpg)
+![image2](https://user-images.githubusercontent.com/47039231/95626938-e5b3ba80-0a98-11eb-99be-e7b973f97551.png) 
 
-After 5000 steps After 6000 steps
+
+![image](https://user-images.githubusercontent.com/47039231/95627020-109e0e80-0a99-11eb-9248-16b48675e229.png)
+
 
 The model converges to global minima in about 6 hrs and learns to differentiate the three subtypes and detects with confidence. After every 1000 steps the saved weights scores were calculated on the test set and these are as follows:
 
@@ -77,7 +73,7 @@ IoU threshold = 50 %, used Area-Under-Curve for each unique Recall
 
 mean average precision (mAP@0.50) = 0.749172, or 74.92 %
 
-1. After 2000 steps
+2. After 2000 steps
 
 class\_id = 0, name = RBC, ap = 87.39% (TP = 720, FP = 313)
 
@@ -93,7 +89,7 @@ IoU threshold = 50 %, used Area-Under-Curve for each unique Recall
 
 mean average precision (mAP@0.50) = 0.775787, or 77.58 %
 
-1. After 3000 steps
+3. After 3000 steps
 
 class\_id = 0, name = RBC, ap = 85.95% (TP = 698, FP = 268)
 
@@ -109,7 +105,7 @@ IoU threshold = 50 %, used Area-Under-Curve for each unique Recall
 
 mean average precision (mAP@0.50) = 0.813893, or 81.39 %
 
-1. After 4000 steps
+4. After 4000 steps
 
 class\_id = 0, name = RBC, ap = 81.47% (TP = 631, FP = 247)
 
@@ -125,7 +121,7 @@ IoU threshold = 50 %, used Area-Under-Curve for each unique Recall
 
 mean average precision (mAP@0.50) = 0.892776, or 89.28 %
 
-1. After 5000 steps
+5. After 5000 steps
 
 class\_id = 0, name = RBC, ap = 88.73% (TP = 727, FP = 288)
 
@@ -141,7 +137,7 @@ IoU threshold = 50 %, used Area-Under-Curve for each unique Recall
 
 mean average precision (mAP@0.50) = 0.937238, or 93.72 %
 
-1. After 6000 steps
+6. After 6000 steps
 
 class\_id = 0, name = RBC, ap = 86.42% (TP = 642, FP = 152)
 
@@ -161,17 +157,17 @@ Loss Function and its behaviour:
 
 The model did not learn anything for a few hundred steps so it was struggling to find a local minima however after about 300 steps loss started going down monotonically upto 600 epochs. The model started to learn and the loss gradually decreased. As evident from the loss curve we can see momentum of 0.9 surely helps the loss function from fluctuating. It took about 7hrs to reach the global minima and the training was stopped at that point.
 
-![](RackMultipart20201009-4-3p9z4f_html_40db5429e9f5ec90.png)
+![](https://user-images.githubusercontent.com/47039231/95627170-53f87d00-0a99-11eb-9e8f-fb2e3f34b120.png)
 
 **Performance on Out of Bag Data:**
 
 A google search gave an image of a blood smear. To make sure the model did not overfit to our training data or training data like conditions.
 
-![](RackMultipart20201009-4-3p9z4f_html_e0ff1235e656e2f3.jpg)
+![](https://user-images.githubusercontent.com/47039231/95627258-8013fe00-0a99-11eb-837e-b48956d0fcd6.png)
 
 The model generalizes well although it misses few RBCs which are overlapping with other WBCs but gets all the WBCs accurately.
 
-![](RackMultipart20201009-4-3p9z4f_html_1920c385a51433fd.jpg)
+![](https://user-images.githubusercontent.com/47039231/95627322-9de16300-0a99-11eb-8dc0-eaa4e6e3e24a.png)
 
 **Fig : Randomly searched image**
 
@@ -186,13 +182,13 @@ Preprocessing remains the same as for YOLOv3 except the few configuration file c
 
 YOLOv4 is comparatively a bulkier model (wrt YOLOv3) as a result the estimated training time was 28 hrs which is a reasonably long time for a small dataset like BCCD. However the model was trained for a limited time as Google colab has a fixed quota on GPU Usage and the results are as follows.
 
-![](RackMultipart20201009-4-3p9z4f_html_ceac59001e86f487.jpg)
+![](https://user-images.githubusercontent.com/47039231/95627451-e00aa480-0a99-11eb-92d3-411978902041.png)
 
 Fig : YOLOv4 on a Blood smear
 
 YOLOv4 performs reasonably better than YOLOv3 and the model was not even trained until 6000 steps.It was trained only for 2000 steps yet it predicts almost all the RBCs and all the WBCs with much better confidence than the best of YOLOv3, on out of bag dataset which gives us a hope that this model if trained for longer and on much better datasets can definitely achieve near to human accuracy.
 
-![](RackMultipart20201009-4-3p9z4f_html_4c31d318174c6f6b.jpg)
+![](https://user-images.githubusercontent.com/47039231/95627513-f87abf00-0a99-11eb-8835-d6045d54e66d.png)
 
 **Fig : YOLOv4 performance on external image**
 
@@ -208,21 +204,21 @@ Difficulties faced while training YOLOv4
 1. Out of all the loss curves given below only one of them tends to go down gradually.(Fig c)
 2. The other two(Fig a,b) perform poorly as seen from loss curves and on the performance on out of bag images (Fig d,e) .
 
-![](RackMultipart20201009-4-3p9z4f_html_477aa9667cc2a9ec.png) ![](RackMultipart20201009-4-3p9z4f_html_b1d02f9e3754cf79.png)
+![](https://user-images.githubusercontent.com/47039231/95627617-1b0cd800-0a9a-11eb-99cd-172f880d69ab.png) 
 
-Fig (a) Fig(b)
+Fig (a)                                                          Fig(b)
 
 Loss curve with different initial anchor boxes and learning rates
 
-![](RackMultipart20201009-4-3p9z4f_html_509369131c19a831.png)
+![](https://user-images.githubusercontent.com/47039231/95627677-34ae1f80-0a9a-11eb-88ec-ce3b11d7c7c3.png)
 
 Fig(c)
 
-![](RackMultipart20201009-4-3p9z4f_html_74364ea1d74152f8.jpg)
+![](https://user-images.githubusercontent.com/47039231/95627752-54ddde80-0a9a-11eb-8567-cb2ddbfcf8a6.png)
 
 Fig(d)
 
-![](RackMultipart20201009-4-3p9z4f_html_92a91c92e8134501.jpg)
+![](https://user-images.githubusercontent.com/47039231/95627834-7dfe6f00-0a9a-11eb-95be-f08280ff9191.png)
 
 Fig(e)
 
@@ -237,25 +233,11 @@ Fig(e)
 
 In this research many papers were read and their ideas were taken and some of them were implemented and in future we hope to read and implement more such papers to come up with a more robust architecture for our use case.
 
-1.
-# [YOLOv3: An Incremental Improvement](https://arxiv.org/abs/1804.02767)
-2.
-## [YOLOv4: Optimal Speed and Accuracy of Object Detection](https://arxiv.org/abs/2004.10934) arXiv Apr 2020
-3.
-# [Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks](https://arxiv.org/abs/1506.01497)
-4.
-# [End-to-End Object Detection with Transformers](https://arxiv.org/abs/2005.12872)
-5.
-# [SpineNet: Learning Scale-Permuted Backbone for Recognition and Localization](https://arxiv.org/abs/1912.05027)
+1. [YOLOv3: An Incremental Improvement](https://arxiv.org/abs/1804.02767)
+2. [YOLOv4: Optimal Speed and Accuracy of Object Detection](https://arxiv.org/abs/2004.10934) arXiv Apr 2020
+3. [Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks](https://arxiv.org/abs/1506.01497)
+4. [End-to-End Object Detection with Transformers](https://arxiv.org/abs/2005.12872)
+5. [SpineNet: Learning Scale-Permuted Backbone for Recognition and Localization](https://arxiv.org/abs/1912.05027) 
 6. [Machine Learning approach of automatic identification and counting of blood cells](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8822896)
-7.
-# [Automatic Detection and Quantification of WBCs and RBCs Using Iterative Structured Circle Detection Algorithm](https://www.hindawi.com/journals/cmmm/2014/979302/)
-8. [Microscopic Blood smear Segmentation and classification using Deep Contour aware CNN and Extreme Machine Learning](https://ieeexplore.ieee.org/document/8014845)
-
-S.Sivaramakrishnan
-
-[sivarama18@iitg.ac.in](mailto:sivarama18@iitg.ac.in)
-
-Dept. Of Biological Engineering and Bio Sciences
-
-Indian Institute Of Technology Guwahati
+7.[Automatic Detection and Quantification of WBCs and RBCs Using Iterative Structured Circle Detection Algorithm](https://www.hindawi.com/journals/cmmm/2014/979302/)
+8.[Microscopic Blood smear Segmentation and classification using Deep Contour aware CNN and Extreme Machine Learning](https://ieeexplore.ieee.org/document/8014845)
