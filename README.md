@@ -239,5 +239,7 @@ In this research many papers were read and their ideas were taken and some of th
 4. [End-to-End Object Detection with Transformers](https://arxiv.org/abs/2005.12872)
 5. [SpineNet: Learning Scale-Permuted Backbone for Recognition and Localization](https://arxiv.org/abs/1912.05027) 
 6. [Machine Learning approach of automatic identification and counting of blood cells](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8822896)
+
 7.[Automatic Detection and Quantification of WBCs and RBCs Using Iterative Structured Circle Detection Algorithm](https://www.hindawi.com/journals/cmmm/2014/979302/)
+
 8.[Microscopic Blood smear Segmentation and classification using Deep Contour aware CNN and Extreme Machine Learning](https://ieeexplore.ieee.org/document/8014845)
