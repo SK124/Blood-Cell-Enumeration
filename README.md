@@ -12,7 +12,7 @@ In the next step we decided to implement these models on the Blood Cell Dataset 
 
 **Dataset :**
 
-**BCCD (**Blood Cell Counting &amp; Detection)
+**BCCD** (Blood Cell Counting &amp; Detection)
 
 This is a dataset of blood cells photos, originally open sourced by [cosmicad](https://github.com/cosmicad/dataset) and [akshaylambda](https://github.com/akshaylamba/all_CELL_data). There are 360 images across three classes: WBC (white blood cells), RBC (red blood cells), and Platelets. There are 4888 labels across 3 classes. Annotations are given in **xml** file format but our object detection models especially YOLO family takes in text format annotations as a result a wide range of preprocessing was done to feed it into these networks.
 
