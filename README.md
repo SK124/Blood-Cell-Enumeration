@@ -1,6 +1,6 @@
 TLDR;
 
-Object Enumeration of minute and closely packed entitites using YOLOv3 & v4 using K means clustering for anchor box calculation on BCCD Datatset. Its Perfomance and the data modelling process and future prospects has been documented. 
+Object Enumeration of minute and closely packed entitites using YOLOv3 & v4 using K means clustering for anchor box calculation on BCCD Datatset.Perfomance and the data modelling process and future prospects of the planned work has been documented. 
 
    
 **INTERN PROGESS REPORT - JULY 2020**
@@ -232,8 +232,8 @@ Fig(e)
 **Future Works :**
 
 1. YOLOv4 could be trained with a better GPU computing ability and if possible on a better dataset with good learning rate and better batch size to avoid loss fluctuation.
-2. Two Stage detection networks like Faster RCNN,Mask RCNN could be implemented similarly and compared to analyse the time vs accuracy tradeoff.
-3. Recently Facebook AI Research published a new Object detection approach using Transformers (DeTR) which does not use anchor based and Non maximum suppression based method for training and the model achieves SOTA in many benchmarks. Implementing DeTR on blood cell detection will be a good direction to take the study forward as it shows better results than traditional object detection algorithms as it has an attention mechanism which avoids overlapping error from which traditional neural networks suffer when dealing with overcrowded objects in image, in our case RBCs .
+2. Two Stage detection networks like Faster RCNN,Mask RCNN will be implemented similarly and compared to analyse the time vs accuracy tradeoff.
+3. Recently Facebook AI Research published a new Object detection approach using Transformers (DeTR) which does not use anchor based and Non maximum suppression based method for training and the model achieves SOTA in many benchmarks. Implementing DeTR on blood cell detection will be a good direction to take the study forward as it shows better results than traditional object detection algorithms as it has an attention mechanism which avoids overlapping error from which traditional neural networks suffer when dealing with overcrowded objects in image, in our case RBCs. This could be a somehow incorporated into our model.
 4. Similarly another model called SpineNet has been published which is current SOTA in Object Detection on MS COCO Leaderboard, implementing blood cell dataset with this model will give good insights on how to come up with a good detection model for enumerating minute entities on microscopic level in biological domain.
 
 **References:**
