@@ -1,8 +1,9 @@
 TLDR;
 
-Object Enumeration of minute and closely packed entitites using YOLOv3 & v4 using K means clustering for anchor box calculation on BCCD Datatset. Its Perfomance and the data modelling process and future prospects has been documented.
+Object Enumeration of minute and closely packed entitites using YOLOv3 & v4 using K means clustering for anchor box calculation on BCCD Datatset. Its Perfomance and the data modelling process and future prospects has been documented. 
 
-Following is a 
+   
+**INTERN PROGESS REPORT - JULY 2020**
 
 **BLOOD CELL DETECTION AND ENUMERATION**
 
@@ -24,7 +25,7 @@ This is a dataset of blood cells photos, originally open sourced by [cosmicad](h
 
 Dataset Split :
 
-\&gt; Training Set = 300 Images \&gt; Testing Set = 60 images
+Training Set = 300 Images \&gt; Testing Set = 60 images
 
 We noticed that there was a class imbalance. RBCs were much higher in numbers than the other two making it a more challenging task. We will discuss the difficulties faced in the forthcoming section.
 
