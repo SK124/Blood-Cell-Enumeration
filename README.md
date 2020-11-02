@@ -1,3 +1,9 @@
+TLDR;
+
+Object Enumeration of minute and closely packed entitites using YOLOv3 & v4 using K means clustering for anchor box calculation on BCCD Datatset. Its Perfomance and the data modelling process and future prospects has been documented.
+
+Following is a 
+
 **BLOOD CELL DETECTION AND ENUMERATION**
 
 **Abstract :**
