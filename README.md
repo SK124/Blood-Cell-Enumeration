@@ -25,7 +25,7 @@ This is a dataset of blood cells photos, originally open sourced by [cosmicad](h
 
 Dataset Split :
 
-Training Set = 300 Images \&gt; Testing Set = 60 images
+Training Set = 300 Images  Testing Set = 60 images
 
 We noticed that there was a class imbalance. RBCs were much higher in numbers than the other two making it a more challenging task. We will discuss the difficulties faced in the forthcoming section.
 
