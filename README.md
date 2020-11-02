@@ -119,7 +119,7 @@ for conf\_thresh = 0.25, TP = 732, FP = 253, FN = 176, average IoU = 62.78 %
 
 IoU threshold = 50 %, used Area-Under-Curve for each unique Recall
 
-mean average precision (mAP@0.50) = 0.892776, or 89.28 %
+mean average precision (mAP@0.50) = 0.882776, or 88.28 %
 
 5. After 5000 steps
 
@@ -135,7 +135,7 @@ for conf\_thresh = 0.25, TP = 836, FP = 299, FN = 72, average IoU = 62.64 %
 
 IoU threshold = 50 %, used Area-Under-Curve for each unique Recall
 
-mean average precision (mAP@0.50) = 0.937238, or 93.72 %
+mean average precision (mAP@0.50) = 0.890723, or 89.07 %
 
 6. After 6000 steps
 
@@ -151,7 +151,7 @@ for conf\_thresh = 0.25, TP = 750, FP = 156, FN = 158, average IoU = 68.24 %
 
 IoU threshold = 50 %, used Area-Under-Curve for each unique Recall
 
-mean average precision (mAP@0.50) = 0.930900, or 93.09 %
+mean average precision (mAP@0.50) = 0.900900, or 90.09 %
 
 Loss Function and its behaviour:
 
@@ -225,7 +225,7 @@ Fig(e)
 **Future Works :**
 
 1. YOLOv4 could be trained with a better GPU computing ability and if possible on a better dataset with good learning rate and better batch size to avoid loss fluctuation.
-2. Two Stage detection networks like Faster RCNN could be implemented similarly and compared to analyse the time vs accuracy tradeoff.
+2. Two Stage detection networks like Faster RCNN,Mask RCNN could be implemented similarly and compared to analyse the time vs accuracy tradeoff.
 3. Recently Facebook AI Research published a new Object detection approach using Transformers (DeTR) which does not use anchor based and Non maximum suppression based method for training and the model achieves SOTA in many benchmarks. Implementing DeTR on blood cell detection will be a good direction to take the study forward as it shows better results than traditional object detection algorithms as it has an attention mechanism which avoids overlapping error from which traditional neural networks suffer when dealing with overcrowded objects in image, in our case RBCs .
 4. Similarly another model called SpineNet has been published which is current SOTA in Object Detection on MS COCO Leaderboard, implementing blood cell dataset with this model will give good insights on how to come up with a good detection model for enumerating minute entities on microscopic level in biological domain.
 
